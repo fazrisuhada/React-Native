@@ -1,4 +1,4 @@
-# 📱 Perjalanan React Native
+# 📱 React Native Journey
 ![GitHub repo size](https://img.shields.io/github/repo-size/fazrisuhada/React-Native?color=blue)
 ![GitHub last commit](https://img.shields.io/github/last-commit/fazrisuhada/React-Native?color=green)
 ![GitHub issues](https://img.shields.io/github/issues/fazrisuhada/React-Native)
