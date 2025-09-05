@@ -1,101 +1,50 @@
-# options for node.js
+# Welcome to your Expo app 👋
 
-An implementation of the option type, sometimes known as the maybe type.
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-An instance of an option type is an optional value. Either it's `none`, or an
-instance of `Some`:
+## Get started
 
-```javascript
-var option = require("option");
+1. Install dependencies
 
-var some = option.some("Bob");
-var none = option.none;
-```   
+   ```bash
+   npm install
+   ```
 
-A function that returns an optional string isn't that different from a function
-that returns a string or `null`. The advantage over null is that options
-provide a number of functions that help with manipulating optional values.
+2. Start the app
 
-```javascript
-    function greet(user) {
-        return "Hello " + user.name().valueOrElse("Anonymous");
-    }
+   ```bash
+   npx expo start
+   ```
+
+In the output, you'll find options to open the app in a
+
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+## Get a fresh project
+
+When you're ready, run:
+
+```bash
+npm run reset-project
 ```
 
-## Methods
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-### isNone() and isSome()
+## Learn more
 
-* `some(value).isNone()` returns `false`
-* `some(value).isSome()` returns `true`
-* `none.isNone()` returns `true`
-* `none.isSome()` returns `false`
+To learn more about developing your project with Expo, look at the following resources:
 
-### value()
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-* `some(value).value()` returns `value`
-* `none.value()` throws an error
+## Join the community
 
-### map(*func*)
+Join our community of developers creating universal apps.
 
-* `some(value).map(func)` returns `some(func(value))`
-* `none.map(func)` returns `none`
-
-### flatMap(*func*)
-
-Conventionally used when `func` returns another option.
-
-* `some(value).flatMap(func)` returns `func(value)`
-* `none.flatMap(func)` returns `none`
-
-### filter(*predicate*)
-
-* `some(value).filter(predicate)` returns:
-  * `some(value)` if `predicate(value) === true`
-  * `none` if `predicate(value) === false`
-* `none.filter(predicate)` returns `none`
-
-### toArray()
-
-* `some(value).toArray()` returns `[some]`
-* `none.toArray()` returns `[]`
-
-### orElse(*other*)
-
-If `other` is a function (`other` conventionally returning another option):
-
-* `some(value).orElse(other)` returns `some(value)`
-* `none.orElse(other)` returns `other()`
-
-If `other` is not a function (`other` conventionally being another option):
-
-* `some(value).orElse(other)` returns `some(value)`
-* `none.orElse(other)` returns `other`
-
-### valueOrElse(*other*)
-
-If `other` is a function:
-
-* `some(value).valueOrElse(other)` returns `value`
-* `none.valueOrElse(other)` returns `other()`
-
-If `other` is not a function:
-
-* `some(value).valueOrElse(other)` returns `value`
-* `none.valueOrElse(other)` returns `other`
-
-## Functions
-
-### option.isOption(*value*)
-
-* `option.isOption(value)` returns `true` if `value` is `option.none` or `option.some(x)`.
-
-### option.fromNullable(*value*)
-
-* If `value` is `null` or `undefined`, `option.fromNullable(value)` returns `option.none`.
-* Otherwise, returns `option.some(value)`.
-  For instance, `option.fromNullable(5)` returns `option.some(5)`.
-
-## Installation
-
-    npm install option
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
